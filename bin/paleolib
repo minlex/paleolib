@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+
+require 'paleolib'                                          
+require 'optparse'
+
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: example.rb [options]" 
+
+  opts.on("-v", "--verbose", "Rub verbosely") do  |v|
+    options[:verbose] = v
+  end
+
+  opts.on("-d", "--directory DIRECTORY", "Search directory for bugs") do |directory|
+    options[:directory] = directory      
+  end
+  opts.on("-b", "--database DATABASE", "Path to CVE database of vulnereability") do |path|
+    options[:database] = path
+  end
+  
+end.parse!
+
+lib = LibWalk.new(options[:database],options[:verbose])
+lib.walk(options[:directory])
+lib.print_summary
