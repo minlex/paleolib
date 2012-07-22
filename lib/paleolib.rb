@@ -37,8 +37,10 @@ class LibWalk
   def walk(path)
     if File.directory?(path)
       files = Dir["#{path}/*"]
-      puts("Dir: #{path}")
-      files.each{ |x| walk(x)}
+      if @verbosity 
+        puts("Directory: #{path}")
+      end
+        files.each{ |x| walk(x)}
     else
       ext = File.extname(path)
       case ext
