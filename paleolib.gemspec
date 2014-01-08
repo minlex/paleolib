@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'paleolib'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.executables << "paleolib"
   s.date        = '2012-07-06'
   s.summary     = "paleolib"
@@ -11,4 +11,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rubyzip',['>= 0' ]
   s.add_runtime_dependency 'sqlite3',['>= 0' ]
   s.add_runtime_dependency 'nokogiri',['>= 0' ]
+  s.add_runtime_dependency 'pedump',['>= 0' ]
 end
